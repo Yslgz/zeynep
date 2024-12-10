@@ -1,0 +1,58 @@
+﻿@model List<Anketler>
+
+@if (TempData["Basarili"] != null)
+{
+    <h2 style=" color:indianred">@TempData["Basarili"]</h2>
+}
+
+ <div class="contair">
+
+    <div class="row pt-3 pb-4"
+        <div>
+            <h1>Anketler</h1>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>AnketAdi</th>
+                <th>Tanim</th>
+                <th>AnketYazari</th>
+
+
+                <th></th
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var anketler in Model)
+            {
+                <tr>
+                    <td>@anketler.Id</td>
+                    <td>@anketler.AnketAdi</td>
+                    <td>@anketler.Tanim</td>
+                    <td>@anketler.AnketYazari</td>
+                    <td>
+                        <a asp-controller="Anketler" asp-action="Update" asp-route-id="@anketler.Id"  type="button" class="btn btn-success" style="width:250px" >Güncelle</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Anketler" asp-action="Delete" asp-route-id="@anketler.Id" type="button" class="btn btn-danger" style="width:250px">Sil</a>
+                    </td>
+
+                </tr>
+            }
+       
+        </tbody>
+    </table>
+
+    <div class="row pt-3 pg-2">
+        <div>
+            <a asp-controller="Anketler" asp-action="Add" class="btn bgn-lg btn-info" type="button" >
+                Yeni Anket Oluştur
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model List<Survey>
+
+@if (TempData["Basarili"] != null)
+{
+    <h2 style=" color:indianred">@TempData["Basarili"]</h2>
+}
+
+ <div class="contair">
+
+    <div class="row pt-3 pb-4"
+        <div>
+            <h1>Anket Türleri</h1>
+        </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Anket Türü</th>
+                <th></th
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var survey in Model)
+            {
+                <tr>
+                    <td>@survey.Id</td>
+                    <td>@survey.Name</td>
+                    <td>
+                        <a asp-controller="Survey" asp-action="Update" asp-route-id="@survey.Id"  type="button" class="btn btn-success" style="width:250px" >Güncelle</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Survey" asp-action="Delete" asp-route-id="@survey.Id" type="button" class="btn btn-danger" style="width:250px">Sil</a>
+                    </td>
+
+                </tr>
+            }
+       
+        </tbody>
+    </table>
+
+    <div class="row pt-3 pg-2">
+        <div>
+            <a asp-controller="Survey" asp-action="Add" class="btn bgn-lg btn-info" type="button" >
+                Yeni Anket Oluştur
+            </a>
+        </div>
+    </div>
+</div>

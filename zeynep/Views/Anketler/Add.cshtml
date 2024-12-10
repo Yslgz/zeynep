@@ -1,0 +1,39 @@
+﻿@model Anketler
+
+<form method="post">
+
+    <div class=" border p-3 mt-5">
+        <div class="row pg-3">
+            <h2 class="text-primary">Anket Sorusu Ekle</h2>
+            </hr>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="AnketAdi" class="p-0"></label>
+            <input asp-for="AnketAdi" class="form-control" />
+         
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Tanim" class="p-0"></label>
+            <input asp-for="Tanim" class="form-control" />
+            
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="AnketYazari" class="p-0"></label>
+            <input asp-for="AnketYazari" class="form-control" />
+            
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Anket Ekle</button>
+
+        <a asp-controller="Anketler" asp-action="Index" class="btn btn-lg btn-primary" style="width:250">
+            Anketlere Geri Dön
+        </a>
+
+    </div>  
+  
+
+</form>
+
